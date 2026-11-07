@@ -141,7 +141,7 @@ canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-con
  <div class="sectiontitle">Доступ через интернет</div><section class="card">
   <div class="small" id="cloudst">—</div>
   <div class="localonly">
-   <div class="grid2"><div class="field"><label>Адрес брокера</label><input id="mhost" placeholder="m5.wqtt.ru" autocomplete="off" autocapitalize="off"></div><div class="field"><label>Порт TLS</label><input id="mport" type="number" placeholder="16073"></div></div>
+   <div class="grid2"><div class="field"><label>Адрес брокера</label><input id="mhost" placeholder="адрес из кабинета брокера" autocomplete="off" autocapitalize="off"></div><div class="field"><label>Порт TLS</label><input id="mport" type="number"></div></div>
    <div class="field"><label>Пользователь брокера</label><input id="muser" autocomplete="off" autocapitalize="off"></div>
    <div class="field"><label>Пароль брокера</label><input id="mpass" type="password" autocomplete="new-password" placeholder="Пусто — не менять"></div>
    <button class="btn primary wide" onclick="saveMqtt()">Сохранить и подключить</button>
@@ -220,8 +220,8 @@ canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-con
 <div id="rsetup" class="rsetup"><div class="rbox">
  <div class="title" style="margin-bottom:6px">Подключение через интернет</div>
  <div class="small" style="margin-bottom:6px">Данные брокера — те же, что вы ввели в настройках платы в гараже. Хранятся только в этом телефоне.</div>
- <div class="field"><label>Адрес брокера</label><input id="rhost" placeholder="m5.wqtt.ru" autocomplete="off" autocapitalize="off"></div>
- <div class="field"><label>Порт WebSocket TLS (wqtt.ru — 16075)</label><input id="rport" type="number" placeholder="16075"></div>
+ <div class="field"><label>Адрес брокера</label><input id="rhost" placeholder="адрес из кабинета брокера" autocomplete="off" autocapitalize="off"></div>
+ <div class="field"><label>Порт WebSocket TLS (wqtt.ru — 16075)</label><input id="rport" type="number"></div>
  <div class="field"><label>Пользователь брокера</label><input id="ruser" autocomplete="username" autocapitalize="off"></div>
  <div class="field"><label>Пароль брокера</label><input id="rpass" type="password" autocomplete="current-password"></div>
  <div class="small" id="rmsg" style="color:var(--red);min-height:18px"></div>
@@ -270,7 +270,7 @@ function renderTimers(ts){let days=["Пн","Вт","Ср","Чт","Пт","Сб","�
 function collect(){let c=S.config||{},ts=[...document.querySelectorAll("[data-time]")].map((e,i)=>{let [h,m]=e.value.split(":").map(Number);let days=0;for(let j=0;j<7;j++)if($(`[data-day="${i}-${j}"]`).classList.contains("on"))days|=1<<WD[j];return{en:$(`[data-en="${i}"]`).classList.contains("on"),h:h||0,m:m||0,on:$(`[data-act="${i}"]`).value==="1",days}});return{thermo:$("#thermo").classList.contains("on"),onBelow:+$("#onBelow").value,offAbove:+$("#offAbove").value,dwellMin:+$("#dwellMin").value,maxRunMin:+$("#maxRunMin").value,safeMax:+$("#safeMax").value,holdMs:+$("#holdMs").value,pumpMl:+$("#pumpMl").value,tankL:+$("#tankL").value,timers:ts}}
 async function saveConfig(){try{let j=await api("/api/config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(collect())});S.config=Object.assign(S.config||{},collect(),j);toast("Настройки сохранены")}catch(e){toast(e.message)}}
 async function saveWifi(){try{await api("/api/wifi?ssid="+encodeURIComponent($("#ssid").value)+"&pass="+encodeURIComponent($("#pass").value),{method:"POST"});$("#pass").value="";toast("Wi‑Fi сохранён")}catch(e){toast(e.message)}}
-function renderSystem(){let x=S.status||{},c=S.config||{};$("#system").innerHTML=`Версия интерфейса: 2.2<br>Аптайм: ${x.up?Math.floor(x.up/3600)+" ч "+Math.floor(x.up%3600/60)+" мин":"—"}<br>Свободная память: ${x.heap?Math.round(x.heap/1024)+" КБ":"—"}<br>Часовой пояс: ${c.tz!=null?c.tz:"—"} мин`}
+function renderSystem(){let x=S.status||{},c=S.config||{};$("#system").innerHTML=`Версия интерфейса: 2.3<br>Аптайм: ${x.up?Math.floor(x.up/3600)+" ч "+Math.floor(x.up%3600/60)+" мин":"—"}<br>Свободная память: ${x.heap?Math.round(x.heap/1024)+" КБ":"—"}<br>Часовой пояс: ${c.tz!=null?c.tz:"—"} мин`}
 function renderLearnRows(x){$("#learns").innerHTML=["on","off","up","down"].map(k=>{let c=x?.codes?.[k],saved=c&&c.v;return`<div class="learnrow"><div><b>${names[k]}</b><code>${saved?("код "+c.v+" · "+c.bits+" бит · протокол "+c.proto):"код не записан"}</code></div><button class="learnbtn" data-k="${k}" onclick="learn('${k}')">Записать</button></div>`}).join("")}
 async function learn(k){try{await api("/api/learn?btn="+k,{method:"POST"});S.learn=k;toast("Нажмите кнопку брелка");refresh()}catch(e){toast(e.message)}}
 async function boot(){try{let [x,c]=await Promise.all([api("/api/status"),api("/api/config")]);renderStatus(x);renderConfig(c);renderLearnRows(x);$("#offline").style.display="none";history();api("/api/time?epoch="+Math.floor(Date.now()/1000)+"&tz="+(-new Date().getTimezoneOffset()),{method:"POST"}).catch(()=>{})}catch(e){$("#offline").style.display="block"}}
@@ -361,9 +361,9 @@ function renderDisplay(x){
 const REMOTE=location.protocol==="https:";
 let MQ=null,PFX="",LAST=null,LAST_T=0,RPC={},mqWait=[],mqOnline=null;
 function mqCfg(){try{return JSON.parse(localStorage.getItem("ghMqtt")||"null")}catch(e){return null}}
-function showSetup(msg){let c=mqCfg()||{};$("#rhost").value=c.host||"";$("#rport").value=c.port||16075;$("#ruser").value=c.user||"";$("#rpass").value="";$("#rmsg").textContent=msg||"";$("#rsetup").style.display="flex"}
+function showSetup(msg){let c=mqCfg()||{};$("#rhost").value=c.host||"m5.wqtt.ru";$("#rport").value=c.port||16075;$("#ruser").value=c.user||"";$("#rpass").value="";$("#rmsg").textContent=msg||"";$("#rsetup").style.display="flex"}
 function saveSetup(){let host=$("#rhost").value.trim().replace(/^\w+:\/\//,"").replace(/[:\/].*$/,""),user=$("#ruser").value.trim(),pass=$("#rpass").value||((mqCfg()||{}).pass)||"";
- if(!host||!user){$("#rmsg").textContent="Заполните адрес и пользователя";return}
+ if(!host||!user){$("#rmsg").textContent=!host?"Впишите адрес брокера":"Впишите пользователя брокера (u_…)";return}
  let port=parseInt($("#rport").value)||16075;
  try{localStorage.setItem("ghMqtt",JSON.stringify({host,port,user,pass}))}catch(e){$("#rmsg").textContent="Браузер не дал сохранить настройки";return}
  $("#rsetup").style.display="none";if(MQ){try{MQ.end(true)}catch(e){}MQ=null}mqConnect()}
@@ -394,7 +394,7 @@ function renderCloud(c){let e=$("#cloudst");if(!e)return;
  if(REMOTE){e.textContent="Вы подключены через интернет ("+((mqCfg()||{}).host||"")+")";return}
  if(!c||!c.configured){e.textContent="Не настроено. Нужны домашний Wi‑Fi (ниже) и облачный MQTT-брокер (wqtt.ru).";return}
  e.textContent=c.connected?"✓ Плата подключена к брокеру — доступ через интернет работает":"⚠ "+(c.error||"не подключено")}
-function fillMqtt(c){if($("#mhost")){$("#mhost").value=c.mqttHost||"";$("#mport").value=c.mqttPort||"";$("#muser").value=c.mqttUser||""}}
+function fillMqtt(c){if($("#mhost")){$("#mhost").value=c.mqttHost||"m5.wqtt.ru";$("#mport").value=c.mqttHost?(c.mqttPort||16073):16073;$("#muser").value=c.mqttUser||""}}
 async function saveMqtt(){try{await api("/api/mqtt?host="+encodeURIComponent($("#mhost").value)+"&port="+encodeURIComponent($("#mport").value)+"&user="+encodeURIComponent($("#muser").value)+"&pass="+encodeURIComponent($("#mpass").value),{method:"POST"});$("#mpass").value="";toast("Сохранено, подключаюсь…")}catch(e){toast(e.message)}}
 if(REMOTE){document.documentElement.classList.add("remote");mqConnect()}
 const MARKS=["Панель: ВКЛ","Панель: ВЫКЛ","Панель: ▲","Панель: ▼","Фен запустился","Фен работает","Фен гаснет","Фен выключен"];
