@@ -19,19 +19,34 @@ header{display:flex;align-items:center;justify-content:space-between;padding:19p
 .page{display:none;animation:up .22s ease}.page.active{display:block}@keyframes up{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:17px;margin-bottom:12px}.hero{padding:20px}
 .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.09em}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}
-.metrics{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}.metric b{font-size:38px;line-height:1.05;letter-spacing:-.06em}.metric span{font-size:17px;color:var(--muted);margin-left:3px}.metric small{display:block;color:var(--muted);margin-top:5px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}.metric b{font-size:38px;line-height:1.05;letter-spacing:-.06em;transition:color .8s}.metric span{font-size:17px;color:var(--muted);margin-left:3px}.metric small{display:block;color:var(--muted);margin-top:5px}
 .topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.title{font-size:18px;font-weight:700}
 .status{display:flex;align-items:center;gap:8px;color:var(--green);font-weight:650}.status.off{color:var(--muted)}.status.unknown{color:var(--orange)}.dot{width:9px;height:9px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
 .heater{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:6px 0 18px}.heater strong{font-size:25px;display:block}.heater p{margin:5px 0 0;color:var(--muted);font-size:13px}
-.controls{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{min-height:56px;border-radius:15px;background:var(--card2);font-weight:700;transition:transform .12s,background .2s}.btn:active{transform:scale(.97)}.btn.primary{background:var(--orange);color:#1c120b}.btn.green{background:var(--green);color:#091a10}.btn.outline{border:1px solid var(--line);background:transparent}.btn.wide{width:100%;margin-top:12px}.power{display:grid;grid-template-columns:1fr 1fr;gap:9px}.power .btn{font-size:16px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:9px}.btn{min-height:56px;border-radius:15px;background:var(--card2);font-weight:700;transition:transform .12s,background .2s}.btn:active{transform:scale(.97)}.btn.primary{background:var(--orange);color:#1c120b}.btn.green{background:var(--green);color:#091a10}.btn.outline{border:1px solid var(--line);background:transparent}.btn.wide{width:100%;margin-top:12px}.holdbtn{position:relative;overflow:hidden;-webkit-user-select:none;user-select:none;touch-action:none;-webkit-touch-callout:none}.holdtxt{position:relative;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.7)}.holdbtn .small{color:inherit;opacity:.7}.liquid{position:absolute;left:0;right:0;bottom:0;height:var(--p,0%);background:linear-gradient(180deg,#f0802e,#b9501a);opacity:0;transition:height .12s linear,opacity .3s}.holdbtn.filling .liquid{opacity:1}.liquid::before,.liquid::after{content:"";position:absolute;left:-40px;right:-40px;top:-9px;height:12px;background-repeat:repeat-x;background-size:40px 12px}.liquid::before{background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 12%27%3E%3Cpath d=%27M0 6 Q10 0 20 6 T40 6 V12 H0Z%27 fill=%27%23f0802e%27/%3E%3C/svg%3E");animation:wave 1.1s linear infinite}.liquid::after{top:-6px;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 12%27%3E%3Cpath d=%27M0 6 Q10 12 20 6 T40 6 V12 H0Z%27 fill=%27%23ffa050%27/%3E%3C/svg%3E");animation:wave2 1.7s linear infinite}@keyframes wave{to{transform:translateX(40px)}}@keyframes wave2{to{transform:translateX(-40px)}}.power{display:grid;grid-template-columns:1fr 1fr;gap:9px}.power .btn{font-size:16px}
 .quick{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}.quick .btn{min-height:56px;font-size:18px;touch-action:manipulation}.btn.hit{background:var(--orange);color:#1c120b;transform:scale(.96)}
 .progress{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin:13px 0 3px}.progress i{display:block;height:100%;background:var(--orange);width:0;transition:width .2s}
 .tabs{position:fixed;z-index:5;bottom:0;left:0;right:0;padding:8px 16px calc(8px + env(safe-area-inset-bottom));background:rgba(16,18,20,.9);backdrop-filter:blur(18px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:8px}.tab{height:55px;flex:1;max-width:190px;border-radius:16px;background:transparent;color:var(--muted);font-size:12px}.tab svg{display:block;margin:0 auto 4px;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8}.tab.active{background:var(--card2);color:var(--orange)}
 canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.seg{display:flex;background:var(--card2);border-radius:10px;padding:3px}.seg button{padding:8px 10px;background:transparent;color:var(--muted);border-radius:8px;font-size:12px}.seg button.active{background:var(--orange);color:#1c120b;font-weight:700}
+.more{color:var(--orange);font-size:13px;font-weight:650;padding:10px 0 0;display:block;background:none;width:100%;text-align:left}
+#chart{cursor:pointer}
+.stats{position:fixed;inset:0;z-index:20;background:var(--bg);display:none;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:calc(14px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
+.stats.open{display:block}.stin{max-width:760px;margin:0 auto}
+.stbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.stbar .title{font-size:22px}
+.stx{width:42px;height:42px;border-radius:50%;background:var(--card2);color:var(--txt);font-size:17px}
+.sseg{display:flex;background:var(--card2);border-radius:12px;padding:3px;margin-bottom:9px}.sseg button{flex:1;padding:10px 4px;background:transparent;color:var(--muted);border-radius:9px;font-size:13px}.sseg button.active{background:var(--orange);color:#1c120b;font-weight:700}
+.shero{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin-bottom:10px;min-height:66px}.shero b{font-size:40px;line-height:1.05;letter-spacing:-.05em;font-variant-numeric:tabular-nums}.shero span{font-size:17px;color:var(--muted);margin-left:4px}
+.shs{text-align:right;color:var(--muted);font-size:12px;line-height:1.5}
+#schart{height:250px;touch-action:pan-y;cursor:crosshair}
+.skey{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted);font-size:12px;margin-top:10px}.skey i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}.skey i.band{height:9px;opacity:.3}.skey i.on{height:6px;background:var(--green)}
+.stiles{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}.stile b{font-size:25px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.stile span{font-size:14px;color:var(--muted);margin-left:3px}.stile small{display:block;color:var(--muted);margin-top:4px;font-size:12px}
+.stab{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums;margin-top:12px}.stab th{color:var(--muted);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;text-align:right;padding:0 0 8px}.stab th:first-child,.stab td:first-child{text-align:left}.stab td{padding:9px 0;border-top:1px solid var(--line);text-align:right}.stab td.mut{color:var(--muted)}
+.snote{color:var(--muted);font-size:12px;line-height:1.5;padding:2px 4px 0}
 .legend{display:flex;gap:15px;color:var(--muted);font-size:12px}.legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--orange)}.legend b.blue{background:var(--blue)}
 .field{margin:13px 0}.field label{display:block;color:var(--muted);font-size:13px;margin-bottom:7px}.field input,.field select{width:100%;height:48px;border:1px solid var(--line);border-radius:13px;background:var(--card2);color:var(--txt);padding:0 13px;outline:none}.field input:focus,.field select:focus{border-color:var(--orange)}
 .switchrow{display:flex;justify-content:space-between;align-items:center;font-weight:650}.switch{width:52px;height:31px;border-radius:20px;background:var(--line);padding:3px;transition:.2s}.switch i{display:block;width:25px;height:25px;border-radius:50%;background:#aaa;transition:.2s}.switch.on{background:var(--orange)}.switch.on i{transform:translateX(21px);background:#fff}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.sectiontitle{font-size:17px;font-weight:750;margin:22px 2px 10px}.timer{border-top:1px solid var(--line);padding:14px 0}.timer:first-of-type{border-top:0}.timerhead{display:flex;align-items:center;gap:10px}.timerhead input[type=time]{flex:1}.timer select{flex:1}.days{display:flex;gap:5px;margin-top:10px}.day{width:38px;height:38px;border-radius:10px;background:var(--card2);color:var(--muted);font-size:12px}.day.on{background:var(--orange);color:#21150d;font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.sectiontitle{font-size:17px;font-weight:750;margin:22px 2px 10px}.delbtn{min-height:44px;margin-top:10px;font-size:14px}.timer{border-top:1px solid var(--line);padding:14px 0}.timer:first-of-type{border-top:0}.timerhead{display:flex;align-items:center;gap:10px}.timerhead input[type=time]{flex:1}.timer select{flex:1}.days{display:flex;gap:5px;margin-top:10px}.day{width:38px;height:38px;border-radius:10px;background:var(--card2);color:var(--muted);font-size:12px}.day.on{background:var(--orange);color:#21150d;font-weight:700}
+.diag{margin:0 0 12px}.diag>summary{list-style:none;cursor:pointer}.diag>summary::-webkit-details-marker{display:none}.diag[open]>summary{margin-bottom:0}
 .learnrow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:9px;padding:12px 0;border-bottom:1px solid var(--line)}.learnrow:last-child{border:0}.learnrow code{display:block;color:var(--muted);font-size:11px;margin-top:4px}.learnbtn{min-height:48px;padding:0 14px;border-radius:12px;background:var(--card2)}.learnbtn.wait{background:var(--orange);color:#1b120c}.toast{position:fixed;z-index:20;left:18px;right:18px;bottom:88px;background:#f4f5f6;color:#131517;padding:14px 16px;border-radius:14px;font-weight:650;transform:translateY(20px);opacity:0;pointer-events:none;transition:.22s}.toast.show{transform:none;opacity:1}.offline{background:#2a2020;border:1px solid #533238;color:#ffb4b9;border-radius:14px;padding:12px;margin-bottom:12px;display:none}.spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.txline{display:none;color:var(--orange);font-size:12px}.empty{text-align:center;padding:35px 10px;color:var(--muted)}
 .pnl{display:none;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}.pstate{font-size:20px;font-weight:750;margin:4px 0 2px}.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;margin-top:10px}.pgrid div{color:var(--muted);font-size:12px}.pgrid b{display:block;color:var(--txt);font-size:18px;font-weight:700}.perr{color:var(--red);font-weight:700;margin-top:10px}.mono{font-family:ui-monospace,Menlo,monospace;font-size:11px;white-space:pre-wrap;word-break:break-all}.logbox{max-height:340px;overflow:auto}.drow{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--line)}.drow:last-child{border:0}.drow span:last-child{color:var(--txt);text-align:right}
 .lcd{position:relative;border-radius:28px;padding:18px 18px 16px;background:radial-gradient(120% 90% at 50% 0%,#14202a 0%,#0b0f14 70%);border:1px solid #1e2a35;box-shadow:inset 0 0 40px rgba(0,180,255,.06),0 10px 30px rgba(0,0,0,.4);overflow:hidden}
@@ -108,35 +123,32 @@ canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-con
    <div class="metric"><div class="label">За запуск</div><b id="fsess">—</b><span>л</span></div>
    <div class="metric"><div class="label">Сегодня</div><b id="ftoday">—</b><span>л</span><small id="ftotal"></small></div>
   </div>
-  <button class="btn wide" onclick="refill()">Залил полный бак</button>
+  <button class="btn wide holdbtn" id="refillBtn"><i class="liquid"></i><span class="holdtxt">Залил полный бак</span></button>
  </section>
- <section class="card"><div class="charthead"><div class="title">История</div><div class="seg"><button data-hours="1" class="active">1 ч</button><button data-hours="6">6 ч</button><button data-hours="24">24 ч</button></div></div><canvas id="chart"></canvas><div class="legend"><span><b></b>Температура</span><span><b class="blue"></b>Влажность</span></div></section>
+ <section class="card"><div class="charthead"><div class="title">История</div><div class="seg"><button data-hours="1" class="active">1 ч</button><button data-hours="6">6 ч</button><button data-hours="24">24 ч</button></div></div><canvas id="chart" onclick="openStats()"></canvas><div class="legend"><span><b></b>Температура</span><span><b class="blue"></b>Влажность</span></div><button class="more" onclick="openStats()">Подробная статистика ›</button></section>
 </main>
 
 <main id="rules" class="page">
  <div class="sectiontitle">Термостат</div><section class="card">
   <div class="switchrow">Автоматическое управление <button id="thermo" class="switch" onclick="toggleThermo()"><i></i></button></div>
   <div class="grid2"><div class="field"><label>Включить при ≤ °C</label><input id="onBelow" type="number" step=".1"></div><div class="field"><label>Выключить при ≥ °C</label><input id="offAbove" type="number" step=".1"></div></div>
-  <div class="grid2"><div class="field"><label>Пауза, минут</label><input id="dwellMin" type="number" min="0"></div><div class="field"><label>Макс. работа, минут</label><input id="maxRunMin" type="number" min="0"></div></div>
-  <div class="field"><label>Аварийно выключить при, °C</label><input id="safeMax" type="number" step=".1"></div>
-  <button class="btn primary wide" onclick="saveConfig()">Сохранить правила</button>
+  <div class="field"><label>Пауза между командами, минут</label><input id="dwellMin" type="number" min="0"></div>
  </section>
- <div class="sectiontitle">Таймеры</div><section class="card" id="timers"></section>
- <button class="btn primary wide" onclick="saveConfig()">Сохранить таймеры</button>
+ <div class="sectiontitle">Защита</div><section class="card">
+  <div class="switchrow">Защита от перегрева <button id="safeOn" class="switch" onclick="this.classList.toggle('on')"><i></i></button></div>
+  <div class="field"><label>Аварийно выключить при, °C</label><input id="safeMax" type="number" step=".1"></div>
+  <div class="switchrow">Ограничить время работы <button id="maxRunOn" class="switch" onclick="this.classList.toggle('on')"><i></i></button></div>
+  <div class="field"><label>Выключить через, минут работы</label><input id="maxRunMin" type="number" min="1"></div>
+  <div class="small" id="maxRunLeft"></div>
+ </section>
+ <div class="sectiontitle">Таймеры</div><section class="card" id="timers"><div class="small">Нет связи с платой: таймеры не загружены</div></section>
 </main>
 
 <main id="settings" class="page">
- <div class="sectiontitle">Коды брелка</div><section class="card"><div class="small">Нажмите «Записать», затем одну кнопку родного брелка. Ожидание — 20 секунд.</div><div id="learns"></div></section>
- <div class="sectiontitle">Топливо</div><section class="card">
-  <div class="grid2"><div class="field"><label>Насос, мл на 1000 импульсов</label><input id="pumpMl" type="number" step="1" min="5" max="100"></div>
-  <div class="field"><label>Объём бака, л</label><input id="tankL" type="number" step="0.5" min="1"></div></div>
-  <div class="small">На насосе написано «BSR.22» — это 22 мл.</div>
-  <div class="field"><label>Сейчас в баке, л (если бак не полный)</label><input id="fsetleft" type="number" step="0.1" min="0"></div>
-  <div class="grid2"><button class="btn" onclick="setLeft()">Задать остаток</button><button class="btn primary" onclick="saveConfig()">Сохранить</button></div>
- </section>
- <div class="sectiontitle">Радиоканал</div><section class="card">
-  <div class="field"><label>Удержание ON/OFF, мс</label><input id="holdMs" type="number" min="500" max="10000"></div>
-  <button class="btn primary wide" onclick="saveConfig()">Сохранить</button>
+ <div class="sectiontitle">Подключение</div>
+ <div class="sectiontitle">Домашний Wi‑Fi</div><section class="card">
+  <div class="field"><label>Имя сети</label><input id="ssid" autocomplete="off"></div><div class="field"><label>Пароль</label><input id="pass" type="password" autocomplete="new-password" placeholder="Оставьте пустым, чтобы не менять"></div>
+  <button class="btn primary wide" onclick="saveWifi()">Сохранить Wi‑Fi</button>
  </section>
  <div class="sectiontitle">Доступ через интернет</div><section class="card">
   <div class="small" id="cloudst">—</div>
@@ -148,21 +160,20 @@ canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-con
   </div>
   <button class="btn wide remoteonly" onclick="showSetup()">Сменить подключение</button>
  </section>
- <div class="sectiontitle">Домашний Wi‑Fi</div><section class="card">
-  <div class="field"><label>Имя сети</label><input id="ssid" autocomplete="off"></div><div class="field"><label>Пароль</label><input id="pass" type="password" autocomplete="new-password" placeholder="Оставьте пустым, чтобы не менять"></div>
-  <button class="btn primary wide" onclick="saveWifi()">Сохранить Wi‑Fi</button>
- </section>
- <div class="sectiontitle">Провод панели фена</div><section class="card small" id="pdiag">Загрузка…</section>
- <div class="sectiontitle">Метки для расшифровки</div><section class="card small">
-  <div class="muted" style="margin-bottom:8px">Нажимай сразу после действия — плата запомнит момент.</div>
-  <div class="grid2" id="marks"></div>
-  <div class="field"><input id="mtext" placeholder="Своя метка, например «уровень 5»"></div>
-  <button class="btn wide" onclick="mark($('#mtext').value)">Поставить метку</button>
- </section>
- <button class="btn wide" onclick="remeasure()">Определить протокол заново</button>
- <div class="sectiontitle">Журнал платы</div><section class="card"><div id="plog" class="mono logbox muted">Загрузка…</div></section>
  <div class="sectiontitle">Система</div><section class="card small" id="system">Загрузка…</section>
  <a href="/update" class="btn wide localonly" style="display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--txt)">Обновить прошивку по Wi-Fi</a>
+ <div class="sectiontitle">Топливо</div><section class="card">
+  <div class="field"><label>Сейчас в баке, л (если бак не полный)</label><input id="fsetleft" type="number" step="0.1" min="0"></div>
+  <button class="btn wide" onclick="setLeft()">Задать остаток</button>
+ </section>
+ <div class="sectiontitle">Радиоканал</div><section class="card">
+  <div class="field"><label>Удержание ON/OFF, мс</label><input id="holdMs" type="number" min="500" max="10000"></div>
+ </section>
+ <details class="diag"><summary class="sectiontitle">Диагностика ▸</summary>
+ <div class="sectiontitle">Провод панели фена</div><section class="card small" id="pdiag">Загрузка…</section>
+ <button class="btn wide" onclick="remeasure()">Определить протокол заново</button>
+ <div class="sectiontitle">Журнал платы</div><section class="card"><div id="plog" class="mono logbox muted">Загрузка…</div></section>
+ </details>
 </main>
 <main id="display" class="page">
  <div class="lcd" id="lcd">
@@ -217,6 +228,16 @@ canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-con
 
 <nav class="tabs"><button class="tab active" data-page="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>Главная</button><button class="tab" data-page="display"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0c0-2 1-3 2-4 0 1.5.8 2.5 2 2.5 0-3-1-4.5 0-7Z"/><path d="M8 20h8"/></svg>Дисплей</button><button class="tab" data-page="rules"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="8" cy="7" r="2"/><circle cx="15" cy="17" r="2"/></svg>Правила</button><button class="tab" data-page="settings"><svg viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg>Настройки</button></nav>
 <div id="toast" class="toast"></div>
+<div id="stats" class="stats"><div class="stin">
+ <div class="stbar"><div class="title">Статистика</div><button class="stx" onclick="closeStats()" aria-label="Закрыть">✕</button></div>
+ <div class="sseg" id="sper"><button data-per="1h">1 ч</button><button data-per="6h">6 ч</button><button data-per="24h">24 ч</button><button data-per="7d">7 дней</button><button data-per="30d">30 дней</button></div>
+ <div class="sseg" id="smet"><button data-met="t">Температура</button><button data-met="h">Влажность</button><button data-met="p">Давление</button></div>
+ <section class="card"><div class="shero"><div><div class="label" id="shl">Сейчас</div><b id="shv">—</b><span id="shu"></span></div><div class="shs" id="shs"></div></div>
+  <canvas id="schart"></canvas><div class="skey" id="skey"></div></section>
+ <section class="card"><div class="stiles" id="stiles"></div></section>
+ <section class="card"><div class="title" id="sttl">По часам</div><table class="stab" id="stab"></table></section>
+ <div class="snote" id="snote"></div>
+</div></div>
 <div id="rsetup" class="rsetup"><div class="rbox">
  <div class="title" style="margin-bottom:6px">Подключение через интернет</div>
  <div class="small" style="margin-bottom:6px">Данные брокера — те же, что вы ввели в настройках платы в гараже. Хранятся только в этом телефоне.</div>
@@ -230,13 +251,14 @@ canvas{width:100%;height:190px;display:block}.charthead{display:flex;justify-con
 
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], S={status:null,config:null,hist:null,hours:1,learn:""};
+const WD=[1,2,3,4,5,6,0];  // порядок дней недели: Пн…Вс → номера дней (0 — воскресенье)
 const names={on:"ВКЛ",off:"ВЫКЛ",up:"+ мощность",down:"− мощность"};
 function toast(t){let e=$("#toast");e.textContent=t;e.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>e.classList.remove("show"),3000)}
 async function apiLocal(url,opt){let r=await fetch(url,opt),j=await r.json().catch(()=>({error:"Некорректный ответ"}));if(!r.ok||j.error)throw Error(j.error||"Ошибка");return j}
 function val(x,d="—"){return typeof x==="number"&&isFinite(x)?Math.round(x*10)/10:d}
 function fmtAgo(s){if(s==null)return"";s=Math.max(0,Math.round(s/60));return s<1?"только что":s+" мин назад"}
 function renderStatus(x){
- S.status=x;$("#temp").textContent=val(x.t);$("#hum").textContent=val(x.h);$("#pres").textContent=val(x.p);
+ S.status=x;$("#temp").textContent=val(x.t);paintTrend(x.t);$("#hum").textContent=val(x.h);$("#pres").textContent=val(x.p);
  $("#tempState").textContent=x.sensors&1?"датчик подключён":"нет датчика";$("#clock").textContent=x.time&&x.time.valid?x.time.local:"—";
  $("#rssi").textContent=x.wifi&&x.wifi.rssi!=null?x.wifi.rssi:"—";$("#wifi").textContent=x.wifi&&x.wifi.sta?(x.wifi.ip||"домашний Wi‑Fi"):"точка доступа";
  let h=x.heater||{}, known=h.known, st=$("#state");st.className="status "+(known?(h.on?"":"off"):"unknown");
@@ -248,32 +270,126 @@ function renderStatus(x){
   (h.last?" · последняя: "+(names[h.last]||h.last)+(h.reason?", "+h.reason:"")+(h.agoS!=null?", "+fmtAgo(h.agoS):""):"");
  $("#run").textContent=h.runS?"Работает "+Math.floor(h.runS/60)+" мин":"";
  let tx=x.tx&&x.tx.active;$("#tx").style.display=tx?"block":"none";$("#tx i").style.width=tx&&x.tx.leftMs?Math.max(3,100-(x.tx.leftMs/(S.config?.holdMs||3000))*100)+"%":"35%";
- ["on","off"].forEach(k=>$("#"+k).disabled=tx); let sig=JSON.stringify(x.codes);if(sig!==S.sig){S.sig=sig;renderLearnRows(x)};renderPanel(x.panel);renderDisplay(x);renderProtect(x);renderFuel(x.fuel);renderCloud(x.cloud)
- renderLearn(x)
+ ["on","off"].forEach(k=>$("#"+k).disabled=tx); renderPanel(x.panel);renderDisplay(x);renderProtect(x);renderFuel(x.fuel);renderCloud(x.cloud)
+ renderMaxRun(x);if(ST.open&&ST.cur<0)stHero()
 }
-function renderLearn(x){let l=x.learn||{};$$(".learnbtn").forEach(b=>{let k=b.dataset.k;b.classList.toggle("wait",l.btn===k);b.textContent=l.btn===k?"Ждём "+(l.leftS||20)+" с":"Записать"})}
 async function refresh(){try{let x=await api("/api/status");$("#offline").style.display="none";renderStatus(x)}catch(e){$("#offline").style.display="block"}}
 async function cmd(c,el){if(c==="on"||c==="off"){if($("#on").disabled)return;$("#on").disabled=$("#off").disabled=true;setTimeout(()=>{$("#on").disabled=$("#off").disabled=false},(S.config&&S.config.holdMs)||3500)}if(el){el.classList.add("hit");setTimeout(()=>el.classList.remove("hit"),180)}try{await api("/api/cmd?c="+c,{method:"POST"});if(c==="on"||c==="off"){toast("Команда отправлена: "+names[c]);refresh()}}catch(e){toast(e.message)}}
-async function history(){try{S.hist=await api("/api/history?n=1440");draw()}catch(e){}}
+async function history(){try{S.hist=await api("/api/history?n=1440");draw();if(ST.open&&!PER[ST.per].long&&ST.cur<0)stRender()}catch(e){}}
 function draw(){let c=$("#chart"),r=c.getBoundingClientRect(),d=devicePixelRatio||1;c.width=r.width*d;c.height=r.height*d;let q=c.getContext("2d");q.scale(d,d);let w=r.width,h=r.height,H=S.hist;if(!H)return;let count=Math.min(H.t.length,S.hours*60),a=H.t.slice(-count),b=H.h.slice(-count),pad=8;
  q.strokeStyle="#2b3037";q.lineWidth=1;for(let i=1;i<4;i++){q.beginPath();q.moveTo(0,h*i/4);q.lineTo(w,h*i/4);q.stroke()}
  function line(arr,color,min,max){q.beginPath();let started=0;arr.forEach((v,i)=>{if(typeof v!=="number")return;let x=pad+(w-pad*2)*i/Math.max(1,arr.length-1),y=h-pad-(Math.max(0,Math.min(1,(v-min)/(max-min)))*(h-pad*2));if(!started){q.moveTo(x,y);started=1}else q.lineTo(x,y)});q.strokeStyle=color;q.lineWidth=2.5;q.lineJoin="round";q.stroke()}
  let ts=a.filter(v=>typeof v==="number"),mn=ts.length?Math.min(...ts)-2:0,mx=ts.length?Math.max(...ts)+2:30;line(a,"#ff8a32",mn,mx);line(b,"#74a9ff",0,100)
 }
 $$(".seg button").forEach(b=>b.onclick=()=>{$$(".seg button").forEach(x=>x.classList.remove("active"));b.classList.add("active");S.hours=+b.dataset.hours;draw()});
-window.onresize=draw;
+window.onresize=()=>{draw();if(ST.open)stDraw()};
+/* ===== Подробная статистика (экран по нажатию на график) ===== */
+const ST={open:false,per:"24h",met:"t",long:null,longAt:0,cur:-1,geo:null,d:null};
+const PER={"1h":{n:60,long:0,grp:6e5,gname:"По 10 минут"},"6h":{n:360,long:0,grp:36e5,gname:"По часам"},"24h":{n:1440,long:0,grp:36e5,gname:"По часам"},"7d":{n:168,long:1,grp:864e5,gname:"По дням"},"30d":{n:720,long:1,grp:864e5,gname:"По дням"}};
+const MET={t:{name:"Температура",unit:"°C",color:"#ff8a32",dec:1},h:{name:"Влажность",unit:"%",color:"#74a9ff",dec:0},p:{name:"Давление",unit:"гПа",color:"#b79cff",dec:0}};
+const isN=v=>typeof v==="number"&&isFinite(v);
+function fx(v,dec){return isN(v)?v.toFixed(dec).replace("-","−").replace(".",","):"—"}
+function p2(n){return String(n).padStart(2,"0")}
+function fTime(ms,long){let d=new Date(ms);return p2(d.getDate())+"."+p2(d.getMonth()+1)+" "+p2(d.getHours())+":"+(long?"00":p2(d.getMinutes()))}
+function fDur(s){let m=Math.round(s/60);return m<60?m+" мин":Math.floor(m/60)+" ч "+(m%60?m%60+" мин":"")}
+function dew(t,h){if(!isN(t)||!isN(h)||h<=0)return null;let g=Math.log(h/100)+17.62*t/(243.12+t);return 243.12*g/(17.62-g)}
+function stData(){let P=PER[ST.per],H=P.long?ST.long:S.hist;if(!H||!H.n||!H[ST.met])return null;
+ if(P.long&&H.step<3600)return{old:1};
+ let n=Math.min(P.n,H[ST.met].length),sl=a=>Array.isArray(a)?a.slice(-n):null,end=Date.now()-(H.age||0)*1000,step=H.step*1000;
+ return{n,step,end,long:P.long,v:sl(H[ST.met]),lo:ST.met==="t"?sl(H.lo):null,hi:ST.met==="t"?sl(H.hi):null,on:(H.o||"").slice(-n),at:i=>end-(n-1-i)*step}}
+function openStats(){ST.open=true;ST.cur=-1;$("#stats").classList.add("open");document.body.style.overflow="hidden";stSync();stRender()}
+function closeStats(){ST.open=false;$("#stats").classList.remove("open");document.body.style.overflow=""}
+function stSync(){$$("#sper button").forEach(b=>b.classList.toggle("active",b.dataset.per===ST.per));$$("#smet button").forEach(b=>b.classList.toggle("active",b.dataset.met===ST.met))}
+async function stLoadLong(){if(ST.long&&Date.now()-ST.longAt<3e5)return;try{ST.long=await api("/api/history?long=1&n=720");ST.longAt=Date.now()}catch(e){toast(e.message)}}
+async function stRender(){if(!ST.open)return;let P=PER[ST.per];if(P.long&&(!ST.long||Date.now()-ST.longAt>=3e5)){$("#schart").style.opacity=.4;await stLoadLong();$("#schart").style.opacity=1}
+ ST.d=stData();stHero();stDraw();stTiles();stTable();
+ $("#snote").textContent="Датчик опрашивается каждые 5 с, цифры на экране обновляются каждые 2–3 с. В график за 1–24 ч точка пишется раз в минуту, за 7 и 30 дней — среднее за час. Плата хранит 24 часа по минутам и 30 дней по часам."}
+function stHero(){let M=MET[ST.met],d=ST.d,x=S.status||{};$("#shu").textContent=M.unit;
+ if(d&&!d.old&&ST.cur>=0&&ST.cur<d.n){let i=ST.cur,v=d.v[i];$("#shl").textContent=fTime(d.at(i),d.long)+(d.long?" (за час)":"");$("#shv").textContent=fx(v,M.dec);
+  let sub=[];if(d.lo&&isN(d.lo[i])&&isN(d.hi[i]))sub.push("от "+fx(d.lo[i],1)+" до "+fx(d.hi[i],1)+" "+M.unit);if(!isN(v))sub.push("нет данных");sub.push(d.on[i]==="1"?"фен работал":"фен не работал");$("#shs").innerHTML=sub.join("<br>");return}
+ $("#shl").textContent="Сейчас";$("#shv").textContent=fx(x[ST.met],M.dec);let td=dew(x.t,x.h);
+ $("#shs").innerHTML=(ST.met==="p"?"":"Точка росы "+fx(td,1)+" °C<br>")+"проведите по графику"}
+function stTicks(mn,mx){let r=mx-mn,st=[.1,.2,.5,1,2,5,10,20,50,100].find(s=>r/s<=4)||200,a=Math.floor(mn/st)*st,b=Math.ceil(mx/st)*st;if(a===b){a-=st;b+=st}let t=[];for(let v=a;v<=b+1e-9;v+=st)t.push(Math.round(v*10)/10);return{a,b,t,st}}
+function stDraw(){let c=$("#schart"),r=c.getBoundingClientRect(),k=devicePixelRatio||1;if(!r.width)return;c.width=r.width*k;c.height=r.height*k;let q=c.getContext("2d");q.scale(k,k);
+ let w=r.width,h=r.height,d=ST.d,M=MET[ST.met],L=4,R=4,T=14,B=38;q.font="11px -apple-system,Arial,sans-serif";q.textBaseline="alphabetic";
+ let msg=t=>{q.fillStyle="#9299a3";q.textAlign="center";q.font="14px -apple-system,Arial,sans-serif";q.fillText(t,w/2,h/2)};ST.geo=null;
+ if(!d){msg("Данных пока нет");$("#skey").innerHTML="";return}
+ if(d.old){msg("Нужна новая прошивка платы");$("#skey").innerHTML="";return}
+ let all=[];d.v.forEach((v,i)=>{if(isN(v))all.push(v);if(d.lo&&isN(d.lo[i]))all.push(d.lo[i]);if(d.hi&&isN(d.hi[i]))all.push(d.hi[i])});
+ if(!all.length){msg("За этот период данных нет");$("#skey").innerHTML="";return}
+ let mn=Math.min(...all),mx=Math.max(...all);if(mx-mn<(ST.met==="t"?1:2)){let m=(mx+mn)/2,hw=ST.met==="t"?.5:1;mn=m-hw;mx=m+hw}
+ let tk=stTicks(mn,mx),pw=w-L-R,ph=h-T-B,X=i=>L+(d.n>1?pw*i/(d.n-1):pw/2),Y=v=>T+ph*(1-(v-tk.a)/(tk.b-tk.a));ST.geo={L,pw,n:d.n};
+ /* сетка и подписи значений (подпись над своей линией) */
+ q.lineWidth=1;q.strokeStyle="#2b3037";q.fillStyle="#9299a3";q.textAlign="left";tk.t.forEach(v=>{let y=Math.round(Y(v))+.5;q.beginPath();q.moveTo(L,y);q.lineTo(w-R,y);q.stroke();q.fillText(fx(v,tk.st<1?1:0)+(v===tk.t[tk.t.length-1]?" "+M.unit:""),L+2,y-4)});
+ /* полоса мин–макс за час (только температура на 7/30 дней) */
+ if(d.lo&&d.hi){q.fillStyle=M.color;q.globalAlpha=.2;let run=[];let flush=()=>{if(run.length>1){q.beginPath();run.forEach((i,j)=>j?q.lineTo(X(i),Y(d.hi[i])):q.moveTo(X(i),Y(d.hi[i])));for(let j=run.length-1;j>=0;j--)q.lineTo(X(run[j]),Y(d.lo[run[j]]));q.closePath();q.fill()}run=[]};
+  for(let i=0;i<d.n;i++){if(isN(d.lo[i])&&isN(d.hi[i]))run.push(i);else flush()}flush();q.globalAlpha=1}
+ /* линия */
+ q.beginPath();let pen=0;for(let i=0;i<d.n;i++){let v=d.v[i];if(!isN(v)){pen=0;continue}if(pen)q.lineTo(X(i),Y(v));else{q.moveTo(X(i),Y(v));pen=1}}q.strokeStyle=M.color;q.lineWidth=2;q.lineJoin="round";q.lineCap="round";q.stroke();
+ /* когда работал фен — полоска под графиком */
+ let by=T+ph+6;q.fillStyle="#20242a";q.fillRect(L,by,pw,6);q.fillStyle="#45d483";let hw=Math.max(1,pw/Math.max(1,d.n-1));for(let i=0;i<d.n;i++)if(d.on[i]==="1")q.fillRect(Math.max(L,X(i)-hw/2),by,Math.min(hw,L+pw-Math.max(L,X(i)-hw/2))+.5,6);
+ /* подписи времени */
+ q.fillStyle="#9299a3";let span=(d.n-1)*d.step,dayFmt=span>36*36e5;[0,1/3,2/3,1].forEach((f,j)=>{let i=Math.round(f*(d.n-1)),t=new Date(d.at(i)),s=dayFmt?p2(t.getDate())+"."+p2(t.getMonth()+1):p2(t.getHours())+":"+p2(t.getMinutes());q.textAlign=j===0?"left":j===3?"right":"center";q.fillText(s,j===0?L:j===3?w-R:X(i),h-6)});
+ /* курсор */
+ if(ST.cur>=0&&ST.cur<d.n){let i=ST.cur,x=Math.round(X(i))+.5;q.strokeStyle="#9299a3";q.lineWidth=1;q.beginPath();q.moveTo(x,T-6);q.lineTo(x,T+ph+12);q.stroke();if(isN(d.v[i])){q.beginPath();q.arc(X(i),Y(d.v[i]),6,0,7);q.fillStyle="#191c20";q.fill();q.beginPath();q.arc(X(i),Y(d.v[i]),4,0,7);q.fillStyle=M.color;q.fill()}}
+ $("#skey").innerHTML='<span><i style="background:'+M.color+'"></i>'+M.name+(d.long?", среднее за час":"")+'</span>'+(d.lo?'<span><i class="band" style="background:'+M.color+'"></i>от минимума до максимума за час</span>':'')+'<span><i class="on"></i>фен работал</span>'}
+function stPick(e){let g=ST.geo;if(!g)return;let r=$("#schart").getBoundingClientRect(),i=Math.round((e.clientX-r.left-g.L)/g.pw*(g.n-1));ST.cur=Math.max(0,Math.min(g.n-1,i));stHero();stDraw()}
+function stStats(d,from,to){let mn=null,mx=null,sum=0,c=0,on=0,first=null,last=null;for(let i=from;i<to;i++){let v=d.v[i],lo=d.lo&&isN(d.lo[i])?d.lo[i]:v,hi=d.hi&&isN(d.hi[i])?d.hi[i]:v;if(d.on[i]==="1")on++;if(!isN(v))continue;
+  if(mn===null||lo<mn.v)mn={v:lo,i};if(mx===null||hi>mx.v)mx={v:hi,i};sum+=v;c++;if(first===null)first=v;last=v}
+ return{mn,mx,avg:c?sum/c:null,c,on:on*d.step/1000,delta:c>1?last-first:null}}
+function stTiles(){let d=ST.d,M=MET[ST.met],e=$("#stiles");if(!d||d.old){e.innerHTML='<div class="small">'+(d&&d.old?"Плата работает на старой прошивке: в ней нет истории за 7 и 30 дней. Обновите прошивку платы.":"Данных пока нет")+"</div>";return}
+ let s=stStats(d,0,d.n),u='<span>'+M.unit+'</span>',cov=(d.n-1)*d.step/1000,tile=(l,v,sm)=>'<div class="stile"><div class="label">'+l+'</div>'+v+(sm?'<small>'+sm+'</small>':'')+'</div>';
+ e.innerHTML=tile("Минимум",'<b>'+fx(s.mn&&s.mn.v,M.dec===0&&ST.met!=="t"?0:1)+'</b>'+u,s.mn?fTime(d.at(s.mn.i),d.long):"")+
+  tile("Максимум",'<b>'+fx(s.mx&&s.mx.v,M.dec===0&&ST.met!=="t"?0:1)+'</b>'+u,s.mx?fTime(d.at(s.mx.i),d.long):"")+
+  tile("Среднее",'<b>'+fx(s.avg,1)+'</b>'+u,"за "+fDur(cov)+" данных")+
+  tile("Изменение",'<b>'+(isN(s.delta)?(s.delta>0?"+":"")+fx(s.delta,1):"—")+'</b>'+u,"от начала к концу периода")+
+  tile("Фен работал",'<b>'+(s.on?fDur(s.on):"0 мин")+'</b>',cov?Math.round(s.on/(cov+d.step/1000)*100)+"% времени":"")+
+  tile("Размах",'<b>'+(s.mn&&s.mx?fx(s.mx.v-s.mn.v,1):"—")+'</b>'+u,"максимум минус минимум")}
+function stTable(){let d=ST.d,P=PER[ST.per],M=MET[ST.met],e=$("#stab");$("#sttl").textContent=P.gname+" · "+M.name.toLowerCase()+", "+M.unit;if(!d||d.old){e.innerHTML="";return}
+ let rows=[],key=i=>{let t=new Date(d.at(i));return P.grp>=864e5?new Date(t.getFullYear(),t.getMonth(),t.getDate()).getTime():Math.floor((d.at(i)-t.getTimezoneOffset()*6e4)/P.grp)*P.grp+t.getTimezoneOffset()*6e4},from=0;
+ for(let i=1;i<=d.n;i++){if(i===d.n||key(i)!==key(from)){rows.push({k:key(from),s:stStats(d,from,i)});from=i}}
+ let lab=k=>{let t=new Date(k),dm=p2(t.getDate())+"."+p2(t.getMonth()+1);return P.grp>=864e5?dm+" "+["вс","пн","вт","ср","чт","пт","сб"][t.getDay()]:dm+" "+p2(t.getHours())+":"+p2(t.getMinutes())};
+ e.innerHTML="<tr><th>"+(P.grp>=864e5?"День":"Время")+"</th><th>Мин</th><th>Сред</th><th>Макс</th><th>Фен</th></tr>"+rows.reverse().map(r=>"<tr><td>"+lab(r.k)+"</td><td>"+fx(r.s.mn&&r.s.mn.v,1)+"</td><td>"+fx(r.s.avg,1)+"</td><td>"+fx(r.s.mx&&r.s.mx.v,1)+'</td><td class="mut">'+(r.s.on?fDur(r.s.on):"—")+"</td></tr>").join("")}
+$$("#sper button").forEach(b=>b.onclick=()=>{ST.per=b.dataset.per;ST.cur=-1;stSync();stRender()});
+$$("#smet button").forEach(b=>b.onclick=()=>{ST.met=b.dataset.met;ST.cur=-1;stSync();stRender()});
+(()=>{let c=$("#schart"),dn=0;c.addEventListener("pointerdown",e=>{dn=1;stPick(e)});c.addEventListener("pointermove",e=>{if(dn||e.pointerType==="mouse")stPick(e)});["pointerup","pointercancel"].forEach(n=>c.addEventListener(n,()=>{dn=0}));c.addEventListener("pointerleave",e=>{if(e.pointerType==="mouse"){ST.cur=-1;stHero();stDraw()}})})();
+
 $$(".tab").forEach(b=>b.onclick=()=>{$$(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");$$(".page").forEach(x=>x.classList.remove("active"));$("#"+b.dataset.page).classList.add("active");if(b.dataset.page==="settings"){renderSystem();diag()}});
 function toggleThermo(){let b=$("#thermo");b.classList.toggle("on");}
+/* ===== Автосохранение: кнопок «Сохранить» нет, настройки уходят на плату сами ===== */
+let autoT = null;
+function autosave(){ clearTimeout(autoT); autoT = setTimeout(() => saveConfig(), 250); }
+document.addEventListener("change", e => {
+  if (e.target.closest && e.target.closest("#rules, #settings") && e.target.matches("input[type=number], input[type=time], select")) autosave();
+});
+document.addEventListener("click", e => {
+  const t = e.target.closest && e.target.closest("#rules .switch, #rules .day");
+  if (t) setTimeout(autosave, 0);  // после того, как переключатель сменил вид
+});
+
 function setInput(id,v){if(v!=null)$("#"+id).value=v}
-function renderConfig(c){S.config=c;fillMqtt(c);$("#thermo").classList.toggle("on",!!c.thermo);["onBelow","offAbove","dwellMin","maxRunMin","safeMax","holdMs","ssid","pumpMl","tankL"].forEach(k=>setInput(k,c[k]));renderTimers(c.timers||[]);renderSystem()}
-function renderTimers(ts){let days=["Пн","Вт","Ср","Чт","Пт","Сб","Вс"],WD=[1,2,3,4,5,6,0];$("#timers").innerHTML=ts.map((t,i)=>`<div class="timer"><div class="timerhead"><button class="switch ${t.en?"on":""}" data-en="${i}" onclick="this.classList.toggle('on')"><i></i></button><input type="time" value="${String(t.h).padStart(2,"0")}:${String(t.m).padStart(2,"0")}" data-time="${i}"><select data-act="${i}"><option value="1" ${t.on?"selected":""}>Включить</option><option value="0" ${!t.on?"selected":""}>Выключить</option></select></div><div class="days">${days.map((d,j)=>`<button class="day ${(t.days>>WD[j])&1?"on":""}" data-day="${i}-${j}" onclick="this.classList.toggle('on')">${d}</button>`).join("")}</div></div>`).join("")}
-function collect(){let c=S.config||{},ts=[...document.querySelectorAll("[data-time]")].map((e,i)=>{let [h,m]=e.value.split(":").map(Number);let days=0;for(let j=0;j<7;j++)if($(`[data-day="${i}-${j}"]`).classList.contains("on"))days|=1<<WD[j];return{en:$(`[data-en="${i}"]`).classList.contains("on"),h:h||0,m:m||0,on:$(`[data-act="${i}"]`).value==="1",days}});return{thermo:$("#thermo").classList.contains("on"),onBelow:+$("#onBelow").value,offAbove:+$("#offAbove").value,dwellMin:+$("#dwellMin").value,maxRunMin:+$("#maxRunMin").value,safeMax:+$("#safeMax").value,holdMs:+$("#holdMs").value,pumpMl:+$("#pumpMl").value,tankL:+$("#tankL").value,timers:ts}}
-async function saveConfig(){try{let j=await api("/api/config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(collect())});S.config=Object.assign(S.config||{},collect(),j);toast("Настройки сохранены")}catch(e){toast(e.message)}}
+function renderConfig(c){S.config=c;fillMqtt(c);$("#thermo").classList.toggle("on",!!c.thermo);["onBelow","offAbove","dwellMin","maxRunMin","safeMax","holdMs","ssid"].forEach(k=>setInput(k,c[k]));$("#safeOn").classList.toggle("on",c.safeOn!==false);$("#maxRunOn").classList.toggle("on",!!c.maxRunOn);renderTimers(c.timers||[]);renderSystem()}
+function renderTimers(ts){let days=["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];$("#timers").innerHTML=ts.map((t,i)=>`<div class="timer"><div class="timerhead"><button class="switch ${t.en?"on":""}" data-en="${i}" onclick="this.classList.toggle('on')"><i></i></button><input type="time" value="${String(t.h).padStart(2,"0")}:${String(t.m).padStart(2,"0")}" data-time="${i}"><select data-act="${i}"><option value="1" ${t.on?"selected":""}>Включить</option><option value="0" ${!t.on?"selected":""}>Выключить</option></select></div><div class="days">${days.map((d,j)=>`<button class="day ${(t.days>>WD[j])&1?"on":""}" data-day="${i}-${j}" onclick="this.classList.toggle('on')">${d}</button>`).join("")}</div><button class="btn outline wide delbtn" onclick="deleteTimer(${i})">Удалить таймер</button></div>`).join("")+`<button class="btn wide" onclick="addTimer()">+ Добавить таймер</button><div class="small" style="margin-top:8px">Таймеров: ${ts.length} из 10</div>`}
+function addTimer(){if(!S.config)return toast("Нет связи с платой: таймеры не загружены");let ts=collect().timers;if(ts.length>=10)return toast("Больше 10 таймеров не бывает");ts.push({en:true,h:7,m:0,on:true,days:127});renderTimers(ts);autosave()}
+function deleteTimer(i){if(!S.config)return toast("Нет связи с платой: таймеры не загружены");let ts=collect().timers;ts.splice(i,1);renderTimers(ts);autosave()}
+function collect(){let c=S.config||{},ts=[...document.querySelectorAll("[data-time]")].map((e,i)=>{let [h,m]=e.value.split(":").map(Number);let days=0;for(let j=0;j<7;j++)if($(`[data-day="${i}-${j}"]`).classList.contains("on"))days|=1<<WD[j];return{en:$(`[data-en="${i}"]`).classList.contains("on"),h:h||0,m:m||0,on:$(`[data-act="${i}"]`).value==="1",days}});return{thermo:$("#thermo").classList.contains("on"),onBelow:+$("#onBelow").value,offAbove:+$("#offAbove").value,dwellMin:+$("#dwellMin").value,maxRunOn:$("#maxRunOn").classList.contains("on"),maxRunMin:+$("#maxRunMin").value,safeOn:$("#safeOn").classList.contains("on"),safeMax:+$("#safeMax").value,holdMs:+$("#holdMs").value,timers:ts}}
+async function saveConfig(){if(!S.config){toast('Нет связи с платой: настройки не загружены, сохранять нечего');return}try{let j=await api("/api/config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(collect())});S.config=Object.assign(S.config||{},collect(),j);toast("Сохранено")}catch(e){toast(e.message)}}
 async function saveWifi(){try{await api("/api/wifi?ssid="+encodeURIComponent($("#ssid").value)+"&pass="+encodeURIComponent($("#pass").value),{method:"POST"});$("#pass").value="";toast("Wi‑Fi сохранён")}catch(e){toast(e.message)}}
-function renderSystem(){let x=S.status||{},c=S.config||{};$("#system").innerHTML=`Версия интерфейса: 2.3<br>Аптайм: ${x.up?Math.floor(x.up/3600)+" ч "+Math.floor(x.up%3600/60)+" мин":"—"}<br>Свободная память: ${x.heap?Math.round(x.heap/1024)+" КБ":"—"}<br>Часовой пояс: ${c.tz!=null?c.tz:"—"} мин`}
-function renderLearnRows(x){$("#learns").innerHTML=["on","off","up","down"].map(k=>{let c=x?.codes?.[k],saved=c&&c.v;return`<div class="learnrow"><div><b>${names[k]}</b><code>${saved?("код "+c.v+" · "+c.bits+" бит · протокол "+c.proto):"код не записан"}</code></div><button class="learnbtn" data-k="${k}" onclick="learn('${k}')">Записать</button></div>`}).join("")}
-async function learn(k){try{await api("/api/learn?btn="+k,{method:"POST"});S.learn=k;toast("Нажмите кнопку брелка");refresh()}catch(e){toast(e.message)}}
-async function boot(){try{let [x,c]=await Promise.all([api("/api/status"),api("/api/config")]);renderStatus(x);renderConfig(c);renderLearnRows(x);$("#offline").style.display="none";history();api("/api/time?epoch="+Math.floor(Date.now()/1000)+"&tz="+(-new Date().getTimezoneOffset()),{method:"POST"}).catch(()=>{})}catch(e){$("#offline").style.display="block"}}
+function renderSystem(){let x=S.status||{},c=S.config||{};$("#system").innerHTML=`Версия интерфейса: 2.4<br>Аптайм: ${x.up?Math.floor(x.up/3600)+" ч "+Math.floor(x.up%3600/60)+" мин":"—"}<br>Свободная память: ${x.heap?Math.round(x.heap/1024)+" КБ":"—"}<br>Часовой пояс: ${c.tz!=null?c.tz:"—"} мин`}
+/* Тренд температуры за 5 минут: растёт — жёлтый, падает — голубой, чем быстрее, тем насыщеннее.
+   Ровно (меньше 0,3 °C за 5 мин) — обычный белый. Берём точки истории платы (раз в минуту). */
+const TR={base:[245,246,247],up:[255,210,60],down:[111,184,255]};
+function trendDelta(cur){let h=S.hist;if(!isN(cur)||!h||!h.t||h.t.length<6)return null;let ref=h.t[h.t.length-6];return isN(ref)?cur-ref:null}
+function trendColor(d){if(d==null)return"";let k=Math.min(1,Math.max(0,(Math.abs(d)-0.3)/1.7));
+ if(k<=0)return"rgb("+TR.base.join(",")+")";let t=d>0?TR.up:TR.down;return"rgb("+TR.base.map((v,i)=>Math.round(v+(t[i]-v)*k)).join(",")+")"}
+function paintTrend(cur){let d=trendDelta(cur),el=$("#temp");el.style.color=trendColor(d);el.title=d==null?"":"за 5 минут: "+(d>0?"+":d<0?"−":"")+Math.abs(d).toFixed(1).replace(".",",")+" °C"}
+function renderMaxRun(x){let el=$("#maxRunLeft");if(!el)return;if(!$("#maxRunOn").classList.contains("on")){el.textContent="";return}
+ let lim=+$("#maxRunMin").value||0,h=(x&&x.heater)||{};
+ if(!h.known||!h.on||h.runS==null){el.textContent="Фен сейчас не работает, отсчёт не идёт";return}
+ let left=lim*60-h.runS;if(left<=0){el.textContent="Выключит в ближайшие секунды";return}
+ let at=new Date(Date.now()+left*1000);el.textContent="Выключит через "+fDur(left)+", примерно в "+p2(at.getHours())+":"+p2(at.getMinutes())}
+$("#maxRunMin").addEventListener("input",()=>renderMaxRun(S.status));
+async function boot(){try{let [x,c]=await Promise.all([api("/api/status"),api("/api/config")]);renderStatus(x);renderConfig(c);$("#offline").style.display="none";history();api("/api/time?epoch="+Math.floor(Date.now()/1000)+"&tz="+(-new Date().getTimezoneOffset()),{method:"POST"}).catch(()=>{})}catch(e){$("#offline").style.display="block"}}
 function esc(s){return String(s==null?"":s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"})[c])}
 function n1(v){return typeof v==="number"&&isFinite(v)?(Math.round(v*10)/10):"—"}
 function renderPanel(p){let e=$("#pnl");if(!p||p.agoS==null||p.agoS>15){e.style.display="none";return}
@@ -312,6 +428,16 @@ function renderFuel(f){if(!f)return;
  $("#dlph").textContent=f.lph>0?f2(f.lph,2):"0.00";$("#dleft").textContent=f.leftL!=null?f2(f.leftL,1):"--.-";
  $("#dlefth").textContent=hrs!=null?"л в баке · ~"+(hrs>=10?Math.round(hrs):hrs.toFixed(1))+" ч":"л в баке"}
 async function refill(){try{await api("/api/fuel?refill=1",{method:"POST"});toast("Бак полный");refresh()}catch(e){toast(e.message)}}
+/* Действие по удержанию: кнопку нужно держать, заполнение показывает прогресс, отпустил раньше — сброс */
+function holdAction(el,ms,fn){let timer=0,raf=0,start=0;
+ const set=p=>el.style.setProperty("--p",p+"%");
+ const stop=()=>{clearTimeout(timer);cancelAnimationFrame(raf);timer=0;raf=0;start=0;el.classList.remove("filling");set(0)};
+ const frame=()=>{if(!start)return;set(Math.min(100,(Date.now()-start)/ms*100));raf=requestAnimationFrame(frame)};
+ el.addEventListener("pointerdown",e=>{if(e.button>0)return;e.preventDefault();stop();el.classList.add("filling");start=Date.now();raf=requestAnimationFrame(frame);timer=setTimeout(()=>{stop();fn()},ms)});
+ const end=()=>{if(timer)stop()};
+ window.addEventListener("pointerup",end);window.addEventListener("pointercancel",end);el.addEventListener("pointerleave",end);
+}
+holdAction($("#refillBtn"),2000,refill);
 async function setLeft(){let v=$("#fsetleft").value;if(v==="")return toast("Введите литры");try{await api("/api/fuel?left="+encodeURIComponent(v),{method:"POST"});toast("Остаток задан");$("#fsetleft").value="";refresh()}catch(e){toast(e.message)}}
 // Баннер «фен выключен защитой»: последняя команда — ВЫКЛ от защиты, меньше часа назад, фен не работает
 function renderProtect(x){
@@ -397,10 +523,6 @@ function renderCloud(c){let e=$("#cloudst");if(!e)return;
 function fillMqtt(c){if($("#mhost")){$("#mhost").value=c.mqttHost||"m5.wqtt.ru";$("#mport").value=c.mqttHost?(c.mqttPort||16073):16073;$("#muser").value=c.mqttUser||""}}
 async function saveMqtt(){try{await api("/api/mqtt?host="+encodeURIComponent($("#mhost").value)+"&port="+encodeURIComponent($("#mport").value)+"&user="+encodeURIComponent($("#muser").value)+"&pass="+encodeURIComponent($("#mpass").value),{method:"POST"});$("#mpass").value="";toast("Сохранено, подключаюсь…")}catch(e){toast(e.message)}}
 if(REMOTE){document.documentElement.classList.add("remote");mqConnect()}
-const MARKS=["Панель: ВКЛ","Панель: ВЫКЛ","Панель: ▲","Панель: ▼","Фен запустился","Фен работает","Фен гаснет","Фен выключен"];
-$("#marks").innerHTML=MARKS.map(m=>'<button class="btn" style="min-height:48px;font-size:14px">'+m+'</button>').join("");
-$$("#marks .btn").forEach(b=>b.onclick=()=>mark(b.textContent));
-async function mark(t){t=(t||"").trim();if(!t)return;try{await api("/api/mark?t="+encodeURIComponent(t),{method:"POST"});toast("Метка: "+t);$("#mtext").value=""}catch(e){toast(e.message)}}
 async function remeasure(){try{await api("/api/panel?remeasure=1",{method:"POST"});toast("Определяю протокол, ~10 с");diag()}catch(e){toast(e.message)}}
 setInterval(()=>{if($("#settings").classList.contains("active"))diag()},3000);
 setInterval(refresh,2000);setInterval(history,60000);boot();
